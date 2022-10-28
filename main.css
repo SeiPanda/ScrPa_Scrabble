@@ -95,6 +95,10 @@ body{
     cursor: move;
 }
 
-.red {
+.tw {
     background-color: red !important;
+}
+
+.dw {
+    background-color: orange !important;
 }
