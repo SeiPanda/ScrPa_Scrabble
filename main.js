@@ -30,14 +30,17 @@ function generateBoard(){
     
   let tileScoreIdx = {
     ct: [112],
-    tw: [0, 7, 14, 105, 119],
-    tl: [20, 76, 80],
-    dw: [16, 28, 32, 42, 48, 56, 64, 70],
-    dl: [3, 36, 45, 52, 92, 96, 108]
+    tw: [0, 7, 14, 105, 119, 210 ,217,224],
+    tl: [20, 24, 76, 80, 84, 88, 136, 140, 144, 148, 200, 204],
+    dw: [16, 28, 32, 42, 48, 56, 64, 70, 154, 160, 168, 176, 182, 192, 196, 208],
+    dl: [3, 11, 36, 38, 45, 52, 59, 92, 96, 98, 102, 108, 116, 122, 126, 128, 132, 165, 172, 179, 186, 188, 213, 221]
   };
 
     colorTripleWordFields(tileScoreIdx);
     colorDoubleWordFields(tileScoreIdx);
+    colorTripleLetterFields(tileScoreIdx);
+    colorDoubleLetterFields(tileScoreIdx);
+    colorCenterField(tileScoreIdx);
 
 }
 
@@ -128,33 +131,44 @@ function colorTripleWordFields(tileScoreIdx){
     //     }
     // }   
   })
-
-
 }
 
-
-
-
 function colorDoubleWordFields(tileScoreIdx){
- 
-
   document.querySelectorAll(".field").forEach((field, index) => { 
     for(let k = 0; k < tileScoreIdx.dw.length; k++){
       if(index == tileScoreIdx.dw[k]){
         field.classList.add("dw");
       }
     }
-      // if(!(index % 7)){
-    //     if(index == 7){
-    //         row.children[0].classList.add("red");
-    //         row.children[14].classList.add("red");
-    //     }else{
-    //         row.children[0].classList.add("red");
-    //         row.children[7].classList.add("red");
-    //         row.children[14].classList.add("red");
-    //     }
-    // }   
   })
-
 }
 
+function colorTripleLetterFields(tileScoreIdx){
+  document.querySelectorAll(".field").forEach((field, index) => { 
+    for(let k = 0; k < tileScoreIdx.tl.length; k++){
+      if(index == tileScoreIdx.tl[k]){
+        field.classList.add("tl");
+      }
+    }
+  })
+}
+
+function colorDoubleLetterFields(tileScoreIdx){
+  document.querySelectorAll(".field").forEach((field, index) => { 
+    for(let k = 0; k < tileScoreIdx.dl.length; k++){
+      if(index == tileScoreIdx.dl[k]){
+        field.classList.add("dl");
+      }
+    }
+  })
+}
+
+function colorCenterField(tileScoreIdx){
+  document.querySelectorAll(".field").forEach((field, index) => { 
+    for(let k = 0; k < tileScoreIdx.ct.length; k++){
+      if(index == tileScoreIdx.ct[k]){
+        field.classList.add("ct");
+      }
+    }
+  })
+}
